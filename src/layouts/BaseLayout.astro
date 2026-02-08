@@ -1,0 +1,38 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import SEO from "@/components/SEO.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: "website" | "article";
+}
+
+const { title, description, image, type } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <SEO title={title} description={description} image={image} type={type} />
+    <ViewTransitions />
+  </head>
+  <body class="mx-auto max-w-xl px-6 py-16">
+    <nav class="flex items-center gap-5 text-sm text-neutral-500 mb-14">
+      <a href="/" class="no-underline hover:text-neutral-800">about</a>
+      <a href="/blog" class="no-underline hover:text-neutral-800">writing</a>
+      <a href="/projects" class="no-underline hover:text-neutral-800">projects</a>
+    </nav>
+    <main transition:animate="fade">
+      <slot />
+    </main>
+  </body>
+</html>
