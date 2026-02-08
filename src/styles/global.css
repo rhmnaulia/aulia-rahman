@@ -1,1 +1,97 @@
 @import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-neutral-600 antialiased text-[15px] leading-7;
+  }
+
+  a {
+    @apply underline decoration-neutral-300 underline-offset-[3px] transition-colors hover:decoration-neutral-800;
+  }
+
+  /* Prose */
+  .prose {
+    @apply text-[15px] leading-7 text-neutral-600;
+  }
+
+  .prose h2 {
+    font-family: var(--font-serif);
+    @apply text-[22px] leading-tight mt-12 mb-4 text-neutral-900;
+  }
+
+  .prose h3 {
+    font-family: var(--font-serif);
+    @apply text-[18px] leading-snug mt-10 mb-3 text-neutral-900;
+  }
+
+  .prose p {
+    @apply my-5;
+  }
+
+  .prose strong {
+    @apply font-semibold text-neutral-900;
+  }
+
+  .prose pre {
+    @apply rounded-md bg-neutral-50 p-4 overflow-x-auto text-[13px] leading-6 my-6;
+    font-family: var(--font-mono);
+  }
+
+  .prose code {
+    font-family: var(--font-mono);
+    @apply text-[13px];
+  }
+
+  .prose :not(pre) > code {
+    @apply rounded bg-neutral-100 px-1.5 py-0.5 text-neutral-600;
+  }
+
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: none;
+  }
+
+  .prose ul, .prose ol {
+    @apply my-5 pl-5;
+  }
+
+  .prose li {
+    @apply my-1.5;
+  }
+
+  .prose blockquote {
+    @apply border-l-2 border-neutral-200 pl-4 italic text-neutral-500 my-6;
+  }
+
+  .prose hr {
+    @apply border-neutral-200 my-10;
+  }
+
+  .prose a {
+    @apply decoration-neutral-300 hover:decoration-neutral-800;
+  }
+}
