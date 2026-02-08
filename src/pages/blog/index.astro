@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}.${m}.${d}`;
+}
+---
+
+<BaseLayout title="Writing — Aulia Rahman" description="Blog posts by Aulia Rahman.">
+  <ul class="space-y-4">
+    {posts.map((post) => (
+      <li class="flex items-baseline justify-between gap-4">
+        <a href={`/blog/${post.id}`} class="font-serif text-[17px] text-neutral-900 decoration-neutral-300 hover:decoration-neutral-800 truncate">
+          {post.data.title}
+        </a>
+        <span class="font-mono text-[12px] text-neutral-400 shrink-0 tabular-nums">
+          {formatDate(post.data.date)}
+        </span>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects", ({ data }) => !data.draft));
+---
+
+<BaseLayout title="Projects — Aulia Rahman" description="Things I've built.">
+  <ul class="space-y-6">
+    {projects.map((project) => (
+      <li>
+        <div class="flex items-baseline justify-between gap-4">
+          {project.data.url ? (
+            <a href={project.data.url} target="_blank" rel="noopener" class="font-serif text-[17px] text-neutral-900 decoration-neutral-300 hover:decoration-neutral-800">
+              {project.data.title}
+            </a>
+          ) : (
+            <span class="font-serif text-[17px] text-neutral-900">{project.data.title}</span>
+          )}
+          {project.data.repo && (
+            <a href={project.data.repo} target="_blank" rel="noopener" class="font-mono text-[12px] text-neutral-400 shrink-0 hover:text-neutral-800">
+              source
+            </a>
+          )}
+        </div>
+        <p class="text-[15px] mt-1">{project.data.description}</p>
+        {project.data.stack.length > 0 && (
+          <p class="font-mono text-[11px] text-neutral-400 mt-1.5">
+            {project.data.stack.join(" · ")}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
