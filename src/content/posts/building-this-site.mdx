@@ -1,0 +1,57 @@
+---
+title: "Building This Site"
+description: "How and why I built this blog the way it is."
+date: 2026-02-08
+tags: ["meta"]
+---
+
+I've had a personal site for a while. The problem is I spent more time tweaking it than actually writing on it. New framework, new design system, new color palette — always building, never publishing. So I scrapped it and made something as simple as possible.
+
+## Design
+
+I looked at [leerob.com](https://leerob.com) and [shud.in](https://shud.in) a lot. Both are mostly just text. No cards, no fancy layouts. That's what I wanted.
+
+I started with more — shadcn/ui components, tag filters, dark mode, React islands. Ended up deleting all of it. Removing the tag filter meant I could drop React entirely. The site went from 200KB of client JS to zero.
+
+## Stack
+
+Astro, Tailwind, MDX, Shiki. No client JavaScript. Every page is static HTML and CSS. Astro's view transitions handle page navigation — fade animation, no full reload.
+
+## Design system
+
+Three fonts, three roles.
+
+| Role | Font | Where |
+|------|------|-------|
+| Headings | Charter (serif) | Page titles, post titles, section headings |
+| Body | Geist Sans | Paragraphs, descriptions, about text |
+| Data | Geist Mono | Dates, code blocks, tech stacks |
+
+Sizes follow a tight scale:
+
+- **Nav** — 14px, `neutral-500`
+- **Page title** — 26–30px serif, `neutral-900`
+- **Post/project titles** — 17px serif, `neutral-900`
+- **Body text** — 15px sans, `neutral-600`
+- **Dates** — 12px mono, `neutral-400`
+- **Prose h2** — 22px serif, `neutral-900`
+- **Prose h3** — 18px serif, `neutral-900`
+- **Code** — 13px mono, `neutral-50` background
+
+Two colors do most of the work. `neutral-900` for anything you should read first. `neutral-600` for everything else. `neutral-400` for metadata you might not need. White background, no dark mode.
+
+Links use a light underline (`neutral-300`) that darkens on hover. No color change, just weight.
+
+## Structure
+
+Three pages. About (homepage), writing (blog posts), and projects. That's it. Nav is just three text links at the top. No logo, no hamburger menu, no footer.
+
+## Writing workflow
+
+My old site used Keystatic as a CMS. It was nice but unnecessary for a one-person blog. Now I just create an `.mdx` file in the content folder, add frontmatter (title, description, date), and write. No admin panel, no deploy hooks, no auth. If I ever need a CMS again I can add one later — the content files stay the same.
+
+## Process
+
+I built this with Claude Code Pro. I made the decisions — stack, design, what stays, what goes. Claude wrote the code. We went back and forth until it felt right.
+
+That's how I work now. I still need to know what I want. The AI just gets me there faster.
