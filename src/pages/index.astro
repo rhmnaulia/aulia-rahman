@@ -7,7 +7,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft))
 ---
 
 <BaseLayout title="Aulia Rahman" description="Software engineer based in Jakarta. Frontend, full-stack, and figuring it out.">
-  <h1 class="font-serif text-3xl mb-8 text-neutral-900">Aulia Rahman</h1>
+  <h1 class="text-[22px] tracking-tight mb-6 text-neutral-800">Aulia Rahman</h1>
 
   <p class="text-[15px] mb-4 leading-7">
     Software engineer in Jakarta. I've been building frontend with React and
@@ -16,20 +16,19 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft))
   </p>
 
   <p class="text-[15px] mb-4 leading-7">
-    I work with Claude Code and Cursor every day. AI tooling changed how I
-    write code — I ship faster and spend less time on the parts that don't
-    require thinking.
+    I work with AI every day. It changed how I write code — I ship faster
+    and spend less time on the parts that don't require thinking.
   </p>
 
-  <p class="text-[15px] mb-12 leading-7">
+  <p class="text-[15px] mb-10 leading-7">
     Outside of work I play basketball, lift, and run. Find me
-    on <a href="https://x.com/rhmnaul" target="_blank" rel="noopener">X</a>, <a href="https://github.com/rhmnaulia" target="_blank" rel="noopener">GitHub</a>, and <a href="https://linkedin.com/in/rhmnaulia/" target="_blank" rel="noopener">LinkedIn</a>.
+    on <a href="https://x.com/rhmnaul" target="_blank" rel="noopener">X</a>, <a href="https://github.com/rhmnaulia" target="_blank" rel="noopener">GitHub</a>, <a href="https://linkedin.com/in/rhmnaulia/" target="_blank" rel="noopener">LinkedIn</a>, and <a href="https://www.strava.com/athletes/134201284" target="_blank" rel="noopener">Strava</a>.
   </p>
 
   <ul class="space-y-3">
     {posts.map((post) => (
       <li>
-        <a href={`/blog/${post.id}`} class="font-serif text-[17px] text-neutral-900 decoration-neutral-300 hover:decoration-neutral-800">
+        <a href={`/blog/${post.id}`} class="text-[15px] text-neutral-800 decoration-neutral-200 hover:decoration-neutral-500">
           {post.data.title}
         </a>
       </li>

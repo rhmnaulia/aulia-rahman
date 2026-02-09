@@ -19,28 +19,24 @@ Astro, Tailwind, MDX, Shiki. No client JavaScript. Every page is static HTML and
 
 ## Design system
 
-Three fonts, three roles.
+One font does almost everything. Geist Sans for headings, body, titles — all of it. Geist Mono handles data: dates, code, tech stacks. Charter shows up only in blockquotes, where serif actually makes sense.
 
-| Role | Font | Where |
-|------|------|-------|
-| Headings | Charter (serif) | Page titles, post titles, section headings |
-| Body | Geist Sans | Paragraphs, descriptions, about text |
-| Data | Geist Mono | Dates, code blocks, tech stacks |
+| Element | Size | Weight | Color |
+|---------|------|--------|-------|
+| Nav | 13px | normal | `neutral-400` |
+| Page/article title | 22px | normal | `neutral-800` |
+| Section heading (h2) | 17px | medium | `neutral-800` |
+| Sub-heading (h3) | 15px | medium | `neutral-800` |
+| Body text | 15px | normal | `neutral-500` |
+| Post/project titles | 15px | normal | `neutral-800` |
+| Dates | 12px mono | normal | `neutral-400` |
+| Code | 13px mono | normal | `neutral-500` |
 
-Sizes follow a tight scale:
+The hierarchy comes from color and weight, not size. Most text lives at 15px. Titles are 22px but normal weight — size creates presence, not boldness. The scale is tight on purpose. If everything is roughly the same size, nothing shouts.
 
-- **Nav** — 14px, `neutral-500`
-- **Page title** — 26–30px serif, `neutral-900`
-- **Post/project titles** — 17px serif, `neutral-900`
-- **Body text** — 15px sans, `neutral-600`
-- **Dates** — 12px mono, `neutral-400`
-- **Prose h2** — 22px serif, `neutral-900`
-- **Prose h3** — 18px serif, `neutral-900`
-- **Code** — 13px mono, `neutral-50` background
+Two colors do most of the work. `neutral-800` for anything you should read first. `neutral-500` for everything else. `neutral-400` for metadata you might not need. White background, no dark mode.
 
-Two colors do most of the work. `neutral-900` for anything you should read first. `neutral-600` for everything else. `neutral-400` for metadata you might not need. White background, no dark mode.
-
-Links use a light underline (`neutral-300`) that darkens on hover. No color change, just weight.
+Links use a light underline (`neutral-200`) that darkens on hover. No color change, just weight.
 
 ## Structure
 
@@ -52,6 +48,6 @@ My old site used Keystatic as a CMS. It was nice but unnecessary for a one-perso
 
 ## Process
 
-I built this with Claude Code Pro. I made the decisions — stack, design, what stays, what goes. Claude wrote the code. We went back and forth until it felt right.
+I built this with AI. I made the decisions — stack, design, what stays, what goes. AI wrote the code. We went back and forth until it felt right.
 
 That's how I work now. I still need to know what I want. The AI just gets me there faster.

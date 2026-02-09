@@ -17,7 +17,7 @@ function formatDate(date: Date) {
   <ul class="space-y-4">
     {posts.map((post) => (
       <li class="flex items-baseline justify-between gap-4">
-        <a href={`/blog/${post.id}`} class="font-serif text-[17px] text-neutral-900 decoration-neutral-300 hover:decoration-neutral-800 truncate">
+        <a href={`/blog/${post.id}`} class="text-[15px] text-neutral-800 decoration-neutral-200 hover:decoration-neutral-500 truncate">
           {post.data.title}
         </a>
         <span class="font-mono text-[12px] text-neutral-400 shrink-0 tabular-nums">
