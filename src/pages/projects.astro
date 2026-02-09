@@ -18,14 +18,14 @@ const projects = (await getCollection("projects", ({ data }) => !data.draft));
             <span class="text-[15px] text-neutral-800">{project.data.title}</span>
           )}
           {project.data.repo && (
-            <a href={project.data.repo} target="_blank" rel="noopener" class="font-mono text-[12px] text-neutral-400 shrink-0 hover:text-neutral-800">
+            <a href={project.data.repo} target="_blank" rel="noopener" class="font-mono text-[12px] text-neutral-500 shrink-0 hover:text-neutral-800">
               source
             </a>
           )}
         </div>
         <p class="text-[14px] mt-1">{project.data.description}</p>
         {project.data.stack.length > 0 && (
-          <p class="font-mono text-[11px] text-neutral-400 mt-1.5">
+          <p class="font-mono text-[11px] text-neutral-500 mt-1.5">
             {project.data.stack.join(" · ")}
           </p>
         )}

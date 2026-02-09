@@ -3,30 +3,46 @@
 @plugin "@tailwindcss/typography";
 
 @font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist Mono";
-  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora-Italic-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
   body {
-    @apply bg-white text-neutral-500 antialiased text-[15px] leading-7;
+    @apply bg-white text-neutral-600 antialiased text-[15px] leading-7;
   }
 
   a {
@@ -36,7 +52,7 @@
 
 /* Prose overrides — outside @layer to beat typography plugin specificity */
 .prose {
-  @apply text-[15px] leading-7 text-neutral-500;
+  @apply text-[15px] leading-7 text-neutral-600;
 }
 
 .prose h2 {
@@ -55,6 +71,11 @@
   @apply font-medium text-neutral-800;
 }
 
+.prose em {
+  font-family: var(--font-serif);
+  @apply italic;
+}
+
 .prose pre {
   @apply rounded-md bg-neutral-50 p-4 overflow-x-auto text-[13px] leading-6 my-6;
   font-family: var(--font-mono);
@@ -66,7 +87,7 @@
 }
 
 .prose :not(pre) > code {
-  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-neutral-500;
+  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-neutral-600;
 }
 
 .prose :not(pre) > code::before,
@@ -91,12 +112,12 @@
 }
 
 .prose tbody td {
-  @apply py-2 text-neutral-500 border-b border-neutral-100;
+  @apply py-2 text-neutral-600 border-b border-neutral-100;
 }
 
 .prose blockquote {
   font-family: var(--font-serif);
-  @apply border-l-2 border-neutral-200 pl-4 italic text-neutral-400 my-6;
+  @apply border-l-2 border-neutral-200 pl-4 italic text-neutral-500 my-6;
 }
 
 .prose hr {
